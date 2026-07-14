@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Human Auto Typing</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <h1>Human Auto Typing</h1>
+        <p class="hint">先在网页里点中一个输入框，再回来启动。</p>
+
+        <label for="target-text">Text</label>
+        <textarea id="target-text" rows="7" placeholder="要模拟输入的文本"></textarea>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="wpm">Base speed</label>
+            <span id="wpm-value">55 WPM</span>
+          </div>
+          <input id="wpm" type="range" min="20" max="120" step="5" value="55">
+          <div class="hint-line">实际速度会在每个 burst 内上下波动，不会恒定。</div>
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="typo-rate">Typo rate</label>
+            <span id="typo-value">3%</span>
+          </div>
+          <input id="typo-rate" type="range" min="0" max="12" step="1" value="3">
+          <div class="hint-line">错字优先取键盘邻近键，随后自动回删修正。</div>
+        </div>
+
+        <div class="actions">
+          <button id="start" class="primary">Start</button>
+          <button id="pause">Pause</button>
+          <button id="stop">Stop</button>
+        </div>
+
+        <div class="status">
+          <div class="status-row">
+            <span>Status</span>
+            <strong id="phase">idle</strong>
+          </div>
+          <div class="progress">
+            <div id="progress-bar"></div>
+          </div>
+          <div class="status-row">
+            <span id="progress-text">0 / 0</span>
+            <span id="message">Focus an input or editable element on the page.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+  </html>
